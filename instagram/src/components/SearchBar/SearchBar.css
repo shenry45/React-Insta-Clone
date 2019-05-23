@@ -1,0 +1,56 @@
+header {
+  background: #fff;
+  border-bottom: 1px solid #cacaca;
+}
+header .container {
+  max-width: 1000px;
+  height: 25px;
+  margin: 0 auto;
+  padding: 26px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+header .container input {
+  height: 18px;
+  padding: 3px 10px 3px 26px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  background: #fafafa;
+}
+header .container div {
+  height: 36px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+header .container div p {
+  margin: 0 15px;
+  height: 80%;
+  border-right: 1px solid #000;
+}
+header .container div img {
+  width: auto;
+  height: 80%;
+}
+header .container div img#logo {
+  height: 60%;
+}
+header .container div img.logo-name {
+  position: relative;
+  top: 5px;
+}
+header .container nav {
+  width: 215px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+header .container nav a {
+  margin-left: 30px;
+}
+header .container nav a img {
+  vertical-align: middle;
+}

@@ -1,0 +1,68 @@
+header {
+  background: #fff;
+  border-bottom: 1px solid #cacaca;
+
+  .container {
+    max-width: 1000px;
+    height: 25px;
+    margin: 0 auto;
+    padding: 26px 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    
+    input {
+      height: 18px;
+      padding: 3px 10px 3px 26px;
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+      background: #fafafa;
+    }
+      
+    div {
+      height: 36px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+
+
+      p {
+        margin: 0 15px;
+        height: 80%;
+        border-right: 1px solid #000;
+      }
+
+      img {
+        width: auto;
+        height: 80%;
+
+        &#logo {
+          height: 60%;
+        }
+
+        &.logo-name {
+          position: relative;
+          top: 5px;
+        }
+      }
+    }
+
+    nav {
+      width: 215px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        margin-left: 30px;
+
+        img {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
+}
