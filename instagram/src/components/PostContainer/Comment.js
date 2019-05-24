@@ -1,14 +1,46 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+/* attempt at filter hashtags then styling them */
 
 const Comment = props => {
+  /*
+  const hashTagFilter = () => {
+    const separators = ["!", "?", ",", "."];
 
-  /* attempt at filter hashtags then styling them */
-  // const hashTagFilter = () => {
-  //   let splitText = props.cmnt.text.replace('#','<>#');
-  //   splitText = splitText.split('<>')
+    let splitText = props.cmnt.text;
 
-  //   return splitText;
-  // }
+    // if text has a # inside
+    if (splitText.search('#')) {
+      let returnText = splitText.split(' ');
+  
+      // for each individual string
+      returnText.forEach(el => {
+
+        // split based on separators
+        separators.forEach(sep => {
+          el = el.replace(sep, `<>${sep}`);
+        });
+
+        el = el.split('<>');
+
+        if (el.length > 1) {
+          el.forEach(el2 => {
+            if (el2.search('#')) {
+              return `<span class="hashtag">${el2}</span>`;
+            }
+            console.log(el2);
+          })
+          el.join('');
+        }
+
+        console.log(el);
+
+        return el.join(' ');
+      });
+    }
+  }
+  */
 
   return (
     <p>
@@ -16,6 +48,13 @@ const Comment = props => {
       {props.cmnt.text}
     </p>
   )
+}
+
+Comment.propTypes = {
+  cmnt: PropTypes.shape({
+    username: PropTypes.string,
+    text: PropTypes.number
+  })
 }
 
 export default Comment;
