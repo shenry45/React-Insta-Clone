@@ -53,7 +53,7 @@ const Comment = props => {
 Comment.propTypes = {
   cmnt: PropTypes.shape({
     username: PropTypes.string,
-    text: PropTypes.number
+    text: PropTypes.string
   })
 }
 
