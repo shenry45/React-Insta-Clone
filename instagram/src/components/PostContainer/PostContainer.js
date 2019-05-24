@@ -9,7 +9,7 @@ function PostContainer(props) {
     <div className="post-container">
       {
         props.posts.map(post => (
-          <Post post={post} key={Math.ceil(Math.random()*10000)} />
+          <Post post={post} key={Math.ceil(Math.random()*10000)} likeHandler={props.likeHandler} />
         ))
       }
     </div>

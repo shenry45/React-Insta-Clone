@@ -8,7 +8,7 @@ function Post(props) {
       <div className="header">
         <div className="post-avatar">
           <img src={props.post.thumbnailUrl} alt=""/>
-          <p>{props.post.username}</p>
+          <p className="username">{props.post.username}</p>
         </div>
         <i className="fas fa-ellipsis-h"></i>
       </div>
@@ -17,7 +17,7 @@ function Post(props) {
 
       <div className="post-interact">
         <div className="like-comm-share">
-          <a href="#">
+          <a href="#" onClick={props.likeHandler}>
             <img src="./uploads/heart.png" alt="See your Likes" />
           </a>
           <a href="#">
@@ -32,6 +32,9 @@ function Post(props) {
         </a>
       </div>
 
+      <div className="like-container">
+        <p>{props.post.likes} likes</p>
+      </div>
 
       <div className="comments">
         {
