@@ -103,15 +103,16 @@ class App extends React.Component {
     // check if comment is not blank
     if (searchInput.value.length > 0) {
 
-      // ----- LIBRARY ATTEMPT -----
+      // Fuse search parameters
       let options = {
         threshold: 0.5,
         keys: ['username']
       }
+      // Fuse search call using data and parameters
       let fuse = new Fuse(this.state.dummyData, options);
 
+      // assign Fuse search results
       const updatedData = fuse.search(searchInput.value);
-      // ----- END OF LIBRARY ATTEMPT -----
 
       /*
       let updatedData = this.state.dummyData;
