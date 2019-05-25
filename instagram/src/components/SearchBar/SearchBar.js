@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchBar.css';
 
-function SearchBar() {
+function SearchBar(props) {
   return (
     <header>
       <div className="container">
@@ -10,7 +10,9 @@ function SearchBar() {
           <p className="separator"></p>
           <img className="logo-name" src="/uploads/Instagram-logo.png" alt="Instagram clone" />
         </div>
-        <input className="search" placeholder="Search"></input>
+        <form onSubmit={props.searchHandler}>
+          <input className="search" placeholder="Search"></input>
+        </form>
         <nav>
           <button className="compass"></button>
           <button className="heart"></button>

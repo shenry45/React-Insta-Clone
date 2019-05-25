@@ -13,27 +13,19 @@ class App extends React.Component {
     }
   }
 
-  getUsername = (e, key) => {
-    let targetEl;
+  getUsername = e => {
+    let targetEl = e.target.parentNode.parentNode;
 
-    // different hiearchial structure requires more parent node methods
-    if (key === 'like') {
-      targetEl = e.target.parentNode.parentNode.parentNode;
-    } else {
-      // get parent of clicked like btn
-      targetEl = e.target.parentNode.parentNode;
-    }
     // get username of post for like tracking
     let targetUser = targetEl.querySelector('.username').innerText;
   
-
     return targetUser;
   }
 
   likeHandler = e => {
     e.preventDefault();
 
-    const targetUser = this.getUsername(e, 'like');
+    const targetUser = this.getUsername(e);
 
     // copy dummyData for editing
     const updatedData = this.state.dummyData;
@@ -57,7 +49,7 @@ class App extends React.Component {
     if (commentInput.value.length > 0) {
       console.log('comment added', e.target);
 
-      const targetUser = this.getUsername(e, 'comment');
+      const targetUser = this.getUsername(e);
       
       // copy dummyData for editing
       const updatedData = this.state.dummyData;
@@ -72,7 +64,7 @@ class App extends React.Component {
       })
       
       // clear input
-      e.target.querySelector('input').value = ""
+      e.target.querySelector('input').value = "";
 
       // set to new state with added likes
       this.setState({dummyData: updatedData});
@@ -101,6 +93,36 @@ class App extends React.Component {
     */
   }
 
+  searchHandler = e => {
+    e.preventDefault();
+
+    const searchInput = e.target.querySelector('input');
+
+    // check if comment is not blank
+    if (searchInput.value.length > 0) {
+
+      let updatedData = this.state.dummyData;
+
+      updatedData = updatedData.filter(data => {
+        data.username.toLowerCase();
+        searchInput.value.toLowerCase();
+        return data.username === searchInput.value;
+      })
+
+      this.setState({
+        dummyData: updatedData
+      }) 
+
+    } else {
+      this.setState({
+        dummyData: dummyData
+      })  
+    }
+    
+    // clear input
+    e.target.querySelector('input').value = "";
+  }
+
   componentDidUpdate(prevState) {
     // if the previous and past props don't match
     if (prevState.dummyData !== this.props.dummyData) {
@@ -114,7 +136,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <SearchBar />
+        <SearchBar searchHandler={this.searchHandler} />
         <PostContainer
           posts={this.state.dummyData}
           likeHandler={this.likeHandler}
