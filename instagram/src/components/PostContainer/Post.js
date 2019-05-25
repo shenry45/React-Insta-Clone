@@ -42,6 +42,9 @@ function Post(props) {
             <Comment cmnt={cmnt}/>
           ))
         }
+        <form onSubmit={props.commentHandler}>
+          <input placeholder="Post a Comment..."></input>
+        </form>
       </div>
     </div>
   )

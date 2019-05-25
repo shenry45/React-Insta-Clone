@@ -8,6 +8,7 @@
 .post-container .post {
   margin-bottom: 60px;
   border: 1px solid #dbdbdb;
+  width: 100%;
 }
 .post-container .header {
   background: #fff;
@@ -66,6 +67,7 @@
   font-weight: 600;
 }
 .post-container .comments {
+  width: 100%;
   padding: 0 16px 8px;
 }
 .post-container .comments p {
@@ -74,4 +76,12 @@
 .post-container .comments span {
   font-weight: 600;
   margin-right: 10px;
+}
+.post-container .comments form {
+  width: 100%;
+  padding-top: 15px;
+}
+.post-container .comments form input {
+  width: 100%;
+  padding: 10px;
 }
