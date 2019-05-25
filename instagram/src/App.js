@@ -15,19 +15,31 @@ class App extends React.Component {
   likeHandler = e => {
     e.preventDefault();
 
+    // get parent of clicked like btn
     const targetEl = e.target.parentNode.parentNode.parentNode.parentNode;
-    const targetUser = targetEl.querySelector('.username');
+    // get username of post for like tracking
+    const targetUser = targetEl.querySelector('.username').innerText;
 
-    this.state.dummyData.forEach(el => {
+    // copy dummyData for editing
+    const updatedData = this.state.dummyData;
+    // find post and add 1 to like count
+    updatedData.forEach(el => {
       if (el.username === targetUser) {
-        el.likes++;
+        el.likes += 1;
       }
     })
+
+    // set to new state with added likes
+    this.setState({dummyData: updatedData});
   }
 
-  componentDidUpdate = (prevState) => {
-    if (this.prevState.dummyData !== this.state.dummyData) {
-      this.fetchData(this.state.dummyData);
+  componentDidUpdate(prevState) {
+    // if the previous and past props don't match
+    if (prevState.dummyData !== this.props.dummyData) {
+      // set to new state
+      this.setState({
+        dummyData: this.state.dummyData
+      })
     }
   }
 
