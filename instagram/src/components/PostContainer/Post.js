@@ -16,20 +16,9 @@ function Post(props) {
       <img className="post-image" src={props.post.imageUrl} alt=""/>
 
       <div className="post-interact">
-        <div className="like-comm-share">
-          <a href="#" onClick={props.likeHandler}>
-            <img src="./uploads/heart.png" alt="See your Likes" />
-          </a>
-          <a href="#">
-            <img src="./uploads/comment.png" alt="" />
-          </a>
-          <a href="#">
-            <img src="./uploads/share.png" alt="" />
-          </a>
-        </div>
-        <a href="#">
-          <img src="/uploads/bookmark.png" alt="" />
-        </a>
+        <button className="heart" onClick={props.likeHandler}></button>
+        <button className="comment"></button>
+        <button className="share"></button>
       </div>
 
       <div className="like-container">
@@ -39,7 +28,7 @@ function Post(props) {
       <div className="comments">
         {
           props.post.comments.map(cmnt => (
-            <Comment cmnt={cmnt}/>
+            <Comment cmnt={cmnt} key={Math.ceil(Math.random()*10000)}/>
           ))
         }
         <form onSubmit={props.commentHandler}>

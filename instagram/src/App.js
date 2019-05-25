@@ -18,7 +18,7 @@ class App extends React.Component {
 
     // different hiearchial structure requires more parent node methods
     if (key === 'like') {
-      targetEl = e.target.parentNode.parentNode.parentNode.parentNode;
+      targetEl = e.target.parentNode.parentNode.parentNode;
     } else {
       // get parent of clicked like btn
       targetEl = e.target.parentNode.parentNode;

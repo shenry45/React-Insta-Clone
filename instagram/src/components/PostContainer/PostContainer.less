@@ -50,15 +50,35 @@
   }
 
   .post-interact {
-    padding: 4px 8px 0px;
+    padding: 8px 16px 0px;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 
-    .like-comm-share {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-between;
+    button {
+      background: transparent;
+      border: none;
+      width: 24px;
+      height: 24px;
+      padding: 16px;
+      margin-right: 8px;
+      outline: none;
+
+      &.heart {
+        background: url('/uploads/heart.png');
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      &.comment {
+        background: url('/uploads/comment.png');
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      &.share {
+        background: url('/uploads/share.png');
+        background-repeat: no-repeat;
+        background-position: center;
+      }
     }
 
     a {
@@ -71,7 +91,7 @@
   }
 
   .like-container {
-    padding: 0 16px 5px;
+    padding: 5px 16px;
     display: block;
     font-weight: 600;
   }

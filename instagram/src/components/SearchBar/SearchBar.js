@@ -12,9 +12,9 @@ function SearchBar() {
         </div>
         <input className="search" placeholder="Search"></input>
         <nav>
-          <a href="#"><img src="/uploads/compass.png" alt="Find your way" /></a>
-          <a href="#"><img src="/uploads/heart.png" alt="See your Likes" /></a>
-          <a href="#"><img src="/uploads/avatar.png" alt="Go to Account" /></a>
+          <button className="compass"></button>
+          <button className="heart"></button>
+          <button className="avatar"></button>
         </nav>
       </div>
     </header>

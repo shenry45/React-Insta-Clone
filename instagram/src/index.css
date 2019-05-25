@@ -20,3 +20,6 @@ p {
 img {
   vertical-align: top;
 }
+button, a {
+  cursor: pointer;
+}
