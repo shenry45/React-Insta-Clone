@@ -1,4 +1,5 @@
 import React from 'react';
+import Fuse from 'fuse.js';
 
 import dummyData from './dummy-data';
 import PostContainer from './components/PostContainer/PostContainer';
@@ -95,12 +96,24 @@ class App extends React.Component {
 
   searchHandler = e => {
     e.preventDefault();
-
+    
     const searchInput = e.target.querySelector('input');
+
 
     // check if comment is not blank
     if (searchInput.value.length > 0) {
 
+      // ----- LIBRARY ATTEMPT -----
+      let options = {
+        threshold: 0.5,
+        keys: ['username']
+      }
+      let fuse = new Fuse(this.state.dummyData, options);
+
+      const updatedData = fuse.search(searchInput.value);
+      // ----- END OF LIBRARY ATTEMPT -----
+
+      /*
       let updatedData = this.state.dummyData;
 
       updatedData = updatedData.filter(data => {
@@ -108,12 +121,13 @@ class App extends React.Component {
         searchInput.value.toLowerCase();
         return data.username === searchInput.value;
       })
-
+      */
+      
       this.setState({
         dummyData: updatedData
       }) 
-
-    } else {
+    }
+    else {
       this.setState({
         dummyData: dummyData
       })  
