@@ -3,7 +3,8 @@ import React from 'react';
 import Login from '../components/Login/Login';
 
 const withAuthenticate = FirstComp =>
-  class extends React.Component {
+  class extends React.Component {   
+
     render() {
       if (localStorage.getItem('username')) {
         return (
@@ -11,7 +12,7 @@ const withAuthenticate = FirstComp =>
         )
       } else {
         return (
-          <Login />
+          <Login loggedIn={this.props.loggedIn} changeHandler={this.props.changeHandler} logInHandler={this.props.logInHandler}/>
         )
       }
     }
