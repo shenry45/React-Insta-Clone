@@ -1,5 +1,6 @@
 import React from 'react';
 
+import WithAuthenticate from './authentication/withAuthenticate';
 import PostsPage from './components/PostsPage';
 
 class App extends React.Component {
@@ -10,10 +11,12 @@ class App extends React.Component {
     }
   }
 
+  
   render() {
+    
     return (
       <div className="App">
-        <PostsPage />
+        {WithAuthenticate(PostsPage)}
       </div>
     )
   }
