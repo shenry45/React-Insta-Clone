@@ -7,16 +7,16 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      loggedIn: false
     }
   }
 
   
   render() {
-    
+    const ComponentFromWithAuthenticate =     WithAuthenticate(PostsPage);
+
     return (
       <div className="App">
-        {WithAuthenticate(PostsPage)}
+        <ComponentFromWithAuthenticate />
       </div>
     )
   }

@@ -1,11 +1,20 @@
 import React from 'react';
 
-const withAuthenticate = FirstComp => {
-  //if (this.state.loggedIn)
+import Login from '../components/Login/Login';
 
-  return (
-    <FirstComp /> // class comp
-  )
-}
+const withAuthenticate = FirstComp =>
+  class extends React.Component {
+    render() {
+      if (localStorage.getItem('username')) {
+        return (
+          <FirstComp />
+        )
+      } else {
+        return (
+          <Login />
+        )
+      }
+    }
+  }
 
 export default withAuthenticate;
