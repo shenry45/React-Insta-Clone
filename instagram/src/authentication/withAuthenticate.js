@@ -1,21 +1,34 @@
 import React from 'react';
 
-import Login from '../components/Login/Login';
+const WithAuthenticate = FirstComp => SecondComp =>
+  class extends React.Component {
+    constructor() {
+      super();
+      this.state = {
+        loggedIn: false
+      }
+    }
 
-const withAuthenticate = FirstComp =>
-  class extends React.Component {   
+    componentDidMount(){
+      console.log('changing loggedin status')
+      if (localStorage.getItem('username')) {
+        this.setState({
+          loggedIn: true
+        })
+      }
+    }
 
     render() {
-      if (localStorage.getItem('username')) {
+      if (this.state.loggedIn === true) {
         return (
           <FirstComp />
         )
       } else {
         return (
-          <Login loggedIn={this.props.loggedIn} changeHandler={this.props.changeHandler} logInHandler={this.props.logInHandler}/>
+          <SecondComp />
         )
       }
     }
   }
 
-export default withAuthenticate;
+export default WithAuthenticate;
