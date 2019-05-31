@@ -12,8 +12,6 @@ class App extends React.Component {
   }
   
   render() {
-    const ComponentFromWithAuthenticate = WithAuthenticate(PostsPage)(Login);
-
     return (
       <div className="App">
         <ComponentFromWithAuthenticate />
@@ -21,5 +19,7 @@ class App extends React.Component {
     )
   }
 }
+
+const ComponentFromWithAuthenticate = WithAuthenticate(PostsPage)(Login);
 
 export default App;

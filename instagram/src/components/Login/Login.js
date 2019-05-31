@@ -3,6 +3,8 @@ import React from 'react';
 class Login extends React.Component {
 
   changeHandler = e => {    
+    e.preventDefault();
+
     this.setState({
       username: e.target.value
     })
@@ -13,6 +15,11 @@ class Login extends React.Component {
 
     // add username to localStorage
     localStorage.setItem('username', this.state.username);
+
+    this.setState({
+      username: '',
+      loggedIn: true
+    })
   }
   
   render() {
